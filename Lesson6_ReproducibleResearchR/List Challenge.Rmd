@@ -1,0 +1,19 @@
+---
+title: "List Challenge"
+author: "Kyle Kozelsky"
+date: "9/14/2019"
+output: html_document
+---
+
+#Challenge  
+##Bullet List  
+
+- _Bullet_  
+- _Bullet_  
+- _Bullet_  
+- _Bullet_  
+
+1. _Ordered List_
+1. _Ordered List_
+1. _Ordered List_
+1. _Ordered List_

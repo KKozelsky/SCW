@@ -1,0 +1,61 @@
+---
+title: "My First Markdown"
+author: "Kyle Kozelsky"
+date: "9/14/2019"
+output: html_document
+---
+
+Bold - **bold**  
+Italics - _Italics_  
+Italics other way - *Italics*  
+Bold and Italics - _**Wow**_  
+
+# Title  
+## Subtitle
+### Section Title
+#### Subsection Title  
+
+- Bullet List 1
+- Bullet List 2
+- Bullet List 3
+
+* Bullet List 1
+* Bullet List 2
+* Bullet List 3
+
+1. Ordered List 1
+1. Ordered List 2
+1. Ordered List 3
+
+Add something in between to start the count over
+
+1. Ordered List 1a
+1. Ordered List 2a
+1. Ordered List 3a
+
+##ggplot
+
+```{r first_chunk}
+gapminder <- read.table("gapminder.txt", header = TRUE)
+head(gapminder)
+```
+
+```{r Challenge1, fig.height=5, fig.width=7}
+library(ggplot2)
+
+az_row <- startsWith(as.vector(gapminder$country), c('A','Z'))
+az_countries <- gapminder[az_row,]
+
+ggplot(data = az_countries, aes(x = year, y = lifeExp, color=continent)) +
+  geom_line() + facet_wrap( ~ country) +
+  labs(
+    x = "Year",              # x axis title
+    y = "Life expectancy",   # y axis title
+    title = "Figure 1",      # main title of figure
+    color = "Continent"      # title of legend
+  ) +
+  theme(axis.text.x=element_text(angle=45), axis.ticks.x=element_blank())
+```
+
+The mean life expectancy of Sweden is `r mean(gapminder[gapminder$country=="Sweden", "lifeExp"])`.
+
